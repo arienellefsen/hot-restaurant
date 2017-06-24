@@ -69,12 +69,21 @@ app.get("/", function(req, res) {
 
 });
 
+// Reserve route
+app.get("/reserve", function(req, res) {
+    console.log('Reservations' + res);
+    res.sendFile(path.join(__dirname, "reserve.html"));
+
+});
+
+
+
 app.get("/api/tables", function(req, res) {
-	res.send(currentWaitingList);
+    res.send(currentWaitingList);
 })
 
 app.get("/api/waiting-list", function(req, res) {
-	res.send(extendedWaitingList);
+    res.send(extendedWaitingList);
 })
 
 //Reserve a New Table
