@@ -1,7 +1,5 @@
-//Javascript file for posting new reservations, and saving
-
 //Dependencies
-var app = require('express');
+var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 
@@ -41,7 +39,8 @@ var currentWaitingList = [{
         phoneNumber: '11111111111',
         customerEmail: 'blergh@altavista.com',
         customerID: '9'
-    }, {
+    },
+    {
         customerName: 'Customer 5',
         phoneNumber: '55555555555',
         customerEmail: 'abcd@askjeeves.com',
@@ -70,6 +69,7 @@ app.get("/", function(req, res) {
 
 });
 
+
 //Reserve a New Table
 app.post("/api/new", function(req, res) {
     var newReservation = req.body;
@@ -83,8 +83,6 @@ app.post("/api/new", function(req, res) {
     }
 
 });
-
-
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
