@@ -1,7 +1,7 @@
 //Javascript file for posting new reservations, and saving
 
 //Dependencies
-var app = require('express');
+var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 
@@ -42,7 +42,7 @@ var currentWaitingList = [
 		phoneNumber: '11111111111',
 		customerEmail: 'blergh@altavista.com',
 		customerID: '9'
-	}
+	},
 	{
 		customerName: 'Customer 5',
 		phoneNumber: '55555555555',
@@ -50,7 +50,7 @@ var currentWaitingList = [
 		customerID: '8'
 	}
 	];
-	
+
 var extendedWaitingList = [
 	{
 		customerName: 'Extra Waiting 1',
