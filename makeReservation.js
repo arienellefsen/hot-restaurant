@@ -80,7 +80,6 @@ app.get("/api/waiting-list", function(req, res) {
 //Reserve a New Table
 app.post("/api/new", function(req, res) {
     var newReservation = req.body;
-
     //If there are already 5 tables waiting
     if (currentWaitingList.length >= 5) {
         //push new reservation to extended waiting list
@@ -88,7 +87,6 @@ app.post("/api/new", function(req, res) {
     } else {
         currentWaitingList.push(newReservation);
     }
-
 });
 
 app.listen(PORT, function() {
