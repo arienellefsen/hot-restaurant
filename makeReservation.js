@@ -98,6 +98,12 @@ app.post("/api/new", function(req, res) {
     }
 });
 
+app.get("api/clear", function(req, res) {
+	currentWaitingList.length = 0;
+	extendedWaitingList.length = 0;
+	res.send('Cleared!');
+})
+
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
