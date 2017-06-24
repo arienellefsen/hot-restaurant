@@ -38,6 +38,16 @@
             <h4 class="panel-title">Current Reservations</h4>
           </div>
           <div class="panel-body" id="current-reservations">
+            <div class = "table-responsive">
+              <table class = "table" id = "waiting-table">
+                <tr>
+                  <td>Customer Name</td>
+                  <td>Phone Number</td>
+                  <td>Email</td>
+                  <td>ID</td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -46,6 +56,16 @@
             <h4 class="panel-title">Waiting List</h4>
           </div>
           <div class="panel-body" id="wait-list">
+            <div class = "table-responsive">
+              <table class = "table" id = "waiting-list">
+                <tr>
+                  <td>Customer Name</td>
+                  <td>Phone Number</td>
+                  <td>Email</td>
+                  <td>ID</td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
               </div>
@@ -61,16 +81,29 @@
           <p><a href="#" id="api-table">API Table Link</a> | <a href="#">API Wait List</a></p>
         </div>
 </body>
-  <script type="text/javascript">
+    <script type="text/javascript">
 
       // QUESTION: What does $.get do? What are the parameters it is expecting?
       $.get("/api/tables", function(data) {
         console.log(data);
-        populateCurrentWaitingTable(data);
+        populateTable(data, "waiting-table");
       });
 
-      function populateCurrentWaitingTable(data){
+      $.get("/api/waiting-list", function(data) {
+        populateTable(data, "waiting-list");
+      })
+
+      function populateTable(data,id){
         console.log('running');
+        for(var i = 0; i < data.length; i++){
+          var toAdd="<tr>" +
+                    "<td>" + data[i].customerName + "</td>" +
+                    "<td>" + data[i].phoneNumber + "</td>" +
+                    "<td>" + data[i].customerEmail + "</td>" +
+                    "<td>" + data[i].customerID + "</td>" +
+                    "</tr>";
+          $('#'+id).append(toAdd);
+        }
       }
   </script>
 </html>
