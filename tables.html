@@ -60,6 +60,17 @@
           <p>Control Panel</p>
           <p><a href="#" id="api-table">API Table Link</a> | <a href="#">API Wait List</a></p>
         </div>
-     >
 </body>
+  <script type="text/javascript">
+
+      // QUESTION: What does $.get do? What are the parameters it is expecting?
+      $.get("/api/tables", function(data) {
+        console.log(data);
+        populateCurrentWaitingTable(data);
+      });
+
+      function populateCurrentWaitingTable(data){
+        console.log('running');
+      }
+  </script>
 </html>

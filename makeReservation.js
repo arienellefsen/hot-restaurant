@@ -69,6 +69,10 @@ app.get("/", function(req, res) {
 
 });
 
+app.get("/api/tables", function(req, res) {
+	res.send(currentWaitingList);
+})
+
 
 //Reserve a New Table
 app.post("/api/new", function(req, res) {
