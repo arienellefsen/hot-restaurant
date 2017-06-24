@@ -21,3 +21,15 @@ app.use(bodyParser.json({
 var currentWaitingList = [];
 var extendedWaitingList = [];
 
+//Reserve a New Table
+app.post("/api/new", function(req, res) {
+	var newReservation = req.body;
+
+	//If there are already 5 tables waiting
+	if(currentWaitingList.length >= 5) {
+		//push new reservation to extended waiting list
+		extendedWaitingList.push(newReservation);
+	} else {
+		currentWaitingList.push(newReservation);
+	}
+});
